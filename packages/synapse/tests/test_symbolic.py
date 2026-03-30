@@ -1,7 +1,6 @@
 """Tests for symbolic math engine."""
 
 import pytest
-
 from crowe_synapse.symbolic import Expression, Symbol, simplify
 
 

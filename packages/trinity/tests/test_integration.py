@@ -5,7 +5,6 @@ Tests that all packages work together as a unified platform.
 
 import math
 
-import numpy as np
 import pytest
 
 
@@ -14,9 +13,9 @@ class TestFullPipeline:
 
     def test_qubitflow_to_audio(self):
         """Write QubitFlow code, execute it, generate music from the result."""
-        from crowe_qubit_flow import Interpreter
         from crowe_quantum_audio import QuantumSequencer
         from crowe_quantum_audio.mapping import QuantumScale, ScaleType
+        from crowe_qubit_flow import Interpreter
 
         # Write and execute a quantum circuit in QubitFlow
         interp = Interpreter()
@@ -39,9 +38,8 @@ H q[2]
 
     def test_core_to_synapse(self):
         """Use quantum measurements to drive statistical analysis."""
-        from crowe_quantum_core.states import StateVector
         from crowe_quantum_core.gates import standard_gates
-        from crowe_synapse import UncertainValue
+        from crowe_quantum_core.states import StateVector
         from crowe_synapse.hypothesis import quantum_distribution_test
 
         # Create a Bell state and sample
@@ -76,25 +74,10 @@ H q[2]
     def test_trinity_import(self):
         """Verify the meta-package imports all components."""
         from crowe_quantum_trinity import (
-            Compiler,
             Expression,
-            Interpreter,
-            Lexer,
-            NoteEvent,
-            Parser,
-            Quantity,
-            QuantumScale,
-            QuantumSequencer,
             Symbol,
             UncertainValue,
-            Unit,
-            errors,
-            gates,
-            noise,
-            protocols,
             states,
-            tensor,
-            types,
         )
 
         # Quick smoke tests

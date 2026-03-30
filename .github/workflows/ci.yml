@@ -29,17 +29,18 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-      - name: Install all packages (local cross-dependencies)
+      - name: Install all packages (local monorepo)
         run: |
           python -m pip install --upgrade pip
-          pip install -e "packages/core[dev]"
-          pip install -e "packages/synapse[dev]"
-          pip install -e "packages/qubit-flow[dev]"
-          pip install -e "packages/quantum-net[dev]"
-          pip install -e "packages/quantum-hub[dev]"
-          pip install -e "packages/quantum-viz[dev]"
-          pip install -e "packages/quantum-audio[dev]"
-          pip install -e "packages/trinity[dev]"
+          pip install numpy "sympy>=1.12" "scipy>=1.13" "matplotlib>=3.9" pytest pytest-cov ruff
+          pip install --no-deps -e packages/core
+          pip install --no-deps -e packages/synapse
+          pip install --no-deps -e packages/qubit-flow
+          pip install --no-deps -e packages/quantum-net
+          pip install --no-deps -e packages/quantum-hub
+          pip install --no-deps -e packages/quantum-viz
+          pip install --no-deps -e packages/quantum-audio
+          pip install --no-deps -e packages/trinity
       - name: Lint
         run: ruff check packages/${{ matrix.package }}/src/
       - name: Test

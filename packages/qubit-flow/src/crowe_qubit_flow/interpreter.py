@@ -6,13 +6,12 @@ import math
 from typing import Any
 
 import numpy as np
-
 from crowe_quantum_core.gates import standard_gates
 from crowe_quantum_core.states import StateVector
 
 from crowe_qubit_flow.ast_nodes import (
-    ASTNode,
     AssignmentNode,
+    ASTNode,
     BarrierNode,
     BinaryOp,
     BooleanLiteral,
@@ -46,6 +45,7 @@ from crowe_qubit_flow.ast_nodes import (
     ReturnNode,
     StringLiteral,
     SuperpositionNode,
+    TeleportationNode,
     TensorProductNode,
     UnaryOp,
     WhileNode,

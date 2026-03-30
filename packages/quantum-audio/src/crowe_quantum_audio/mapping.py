@@ -11,13 +11,12 @@ within composer-defined constraints.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum, auto
 
 import numpy as np
-from numpy.typing import NDArray
-
 from crowe_quantum_core.states import StateVector
+from numpy.typing import NDArray
 
 
 class ScaleType(Enum):

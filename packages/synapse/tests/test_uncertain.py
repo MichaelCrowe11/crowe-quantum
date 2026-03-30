@@ -3,7 +3,6 @@
 import math
 
 import pytest
-
 from crowe_synapse.uncertain import UncertainValue
 
 

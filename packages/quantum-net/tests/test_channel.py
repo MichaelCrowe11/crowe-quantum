@@ -2,12 +2,11 @@
 
 import numpy as np
 import pytest
-
-from crowe_quantum_core.states import StateVector, DensityMatrix
+from crowe_quantum_core.states import DensityMatrix, StateVector
 from crowe_quantum_net.channel import (
     QuantumChannel,
-    depolarizing_channel,
     amplitude_damping_channel,
+    depolarizing_channel,
 )
 
 

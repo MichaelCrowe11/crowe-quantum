@@ -1,11 +1,9 @@
 """Tests for physical unit system."""
 
 import pytest
-
 from crowe_synapse.units import (
     DIMENSIONLESS,
     JOULE,
-    KILOGRAM,
     METER,
     NEWTON,
     SECOND,

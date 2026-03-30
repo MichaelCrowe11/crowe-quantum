@@ -2,7 +2,6 @@
 
 import numpy as np
 import pytest
-
 from crowe_synapse.hypothesis import (
     HypothesisTest,
     chi_squared_test,

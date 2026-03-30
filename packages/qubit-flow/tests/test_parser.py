@@ -1,8 +1,6 @@
 """Tests for the QubitFlow parser."""
 
 import pytest
-
-from crowe_qubit_flow.parser import Parser, ParseError
 from crowe_qubit_flow.ast_nodes import (
     AssignmentNode,
     BinaryOp,
@@ -13,7 +11,6 @@ from crowe_qubit_flow.ast_nodes import (
     ForNode,
     FunctionDefNode,
     GateApplicationNode,
-    Identifier,
     IfNode,
     IntegerLiteral,
     KetStateNode,
@@ -24,6 +21,7 @@ from crowe_qubit_flow.ast_nodes import (
     SuperpositionNode,
     WhileNode,
 )
+from crowe_qubit_flow.parser import ParseError, Parser
 
 
 def parse(source: str) -> ProgramNode:

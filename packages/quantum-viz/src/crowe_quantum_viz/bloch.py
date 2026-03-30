@@ -14,7 +14,6 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 import numpy as np
-from numpy.typing import NDArray
 
 if TYPE_CHECKING:
     from crowe_quantum_core.states import DensityMatrix, StateVector
@@ -50,7 +49,7 @@ def bloch_coords(state: StateVector | DensityMatrix) -> BlochCoords:
     For a StateVector, converts to density matrix first.
     The Bloch vector is r = (Tr(rho*X), Tr(rho*Y), Tr(rho*Z)).
     """
-    from crowe_quantum_core.states import StateVector, DensityMatrix
+    from crowe_quantum_core.states import DensityMatrix, StateVector
 
     if isinstance(state, StateVector):
         if state.num_qubits != 1:

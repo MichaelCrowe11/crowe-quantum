@@ -11,11 +11,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any
 
-import numpy as np
-from numpy.typing import NDArray
-
 from crowe_quantum_core.noise import NoiseModel
-from crowe_quantum_core.states import DensityMatrix, PauliString, StateVector
+from crowe_quantum_core.states import PauliString, StateVector
 
 
 @dataclass

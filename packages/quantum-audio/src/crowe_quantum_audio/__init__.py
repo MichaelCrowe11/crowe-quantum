@@ -9,7 +9,7 @@ from crowe_quantum_audio.mapping import (
     phase_to_pitch,
     probability_to_rhythm,
 )
-from crowe_quantum_audio.sequencer import QuantumSequencer, NoteEvent
+from crowe_quantum_audio.sequencer import NoteEvent, QuantumSequencer
 
 __all__ = [
     "NoteEvent",

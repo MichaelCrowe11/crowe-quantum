@@ -2,8 +2,7 @@
 
 import numpy as np
 import pytest
-
-from crowe_quantum_core.gates import Gate, GateRegistry, standard_gates
+from crowe_quantum_core.gates import standard_gates
 
 
 class TestGateRegistry:

@@ -4,8 +4,7 @@ import math
 
 import numpy as np
 import pytest
-
-from crowe_quantum_core.states import StateVector, DensityMatrix
+from crowe_quantum_core.states import DensityMatrix, StateVector
 from crowe_quantum_viz.bloch import BlochCoords, BlochSphere, bloch_coords
 
 

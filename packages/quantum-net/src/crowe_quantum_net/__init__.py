@@ -6,12 +6,16 @@ teleportation protocols over noisy networks.
 
 __version__ = "1.0.0"
 
-from crowe_quantum_net.channel import QuantumChannel, depolarizing_channel, amplitude_damping_channel
+from crowe_quantum_net.channel import (
+    QuantumChannel,
+    amplitude_damping_channel,
+    depolarizing_channel,
+)
 from crowe_quantum_net.entanglement import (
     EntanglementSource,
     EntanglementSwap,
-    entanglement_fidelity,
     concurrence,
+    entanglement_fidelity,
 )
 from crowe_quantum_net.teleportation import (
     TeleportationProtocol,

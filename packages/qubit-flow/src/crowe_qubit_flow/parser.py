@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from crowe_qubit_flow.lexer import GATE_TOKEN_TO_NAME, Lexer, Token, TokenType
 from crowe_qubit_flow.ast_nodes import (
-    ASTNode,
     AssignmentNode,
+    ASTNode,
     BarrierNode,
     BinaryOp,
     BooleanLiteral,
@@ -40,12 +39,11 @@ from crowe_qubit_flow.ast_nodes import (
     QPENode,
     QubitDeclNode,
     QuditDeclNode,
-    RangeNode,
     ResetNode,
     ReturnNode,
     ShorsNode,
-    StringLiteral,
     StabilizerNode,
+    StringLiteral,
     SuperpositionNode,
     SyndromeNode,
     TeleportationNode,
@@ -54,6 +52,7 @@ from crowe_qubit_flow.ast_nodes import (
     VQENode,
     WhileNode,
 )
+from crowe_qubit_flow.lexer import GATE_TOKEN_TO_NAME, Lexer, Token, TokenType
 
 
 class ParseError(Exception):
@@ -543,10 +542,10 @@ class Parser:
     def _parse_addition(self) -> ASTNode:
         left = self._parse_multiplication()
         while True:
-            if tok := self._match(TokenType.PLUS):
+            if self._match(TokenType.PLUS):
                 right = self._parse_multiplication()
                 left = BinaryOp(op="+", left=left, right=right, line=left.line, column=left.column)
-            elif tok := self._match(TokenType.MINUS):
+            elif self._match(TokenType.MINUS):
                 right = self._parse_multiplication()
                 left = BinaryOp(op="-", left=left, right=right, line=left.line, column=left.column)
             else:

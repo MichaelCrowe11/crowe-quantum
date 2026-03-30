@@ -4,11 +4,9 @@ import math
 
 import numpy as np
 import pytest
-
 from crowe_qubit_flow.interpreter import (
     Environment,
     Interpreter,
-    InterpreterError,
     QubitRegister,
 )
 

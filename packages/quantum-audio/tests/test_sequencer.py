@@ -1,11 +1,8 @@
 """Tests for the quantum sequencer."""
 
 import numpy as np
-import pytest
-
-from crowe_quantum_core.states import StateVector
-
 from crowe_quantum_audio.sequencer import NoteEvent, QuantumSequencer
+from crowe_quantum_core.states import StateVector
 
 
 class TestNoteEvent:
@@ -36,7 +33,7 @@ class TestQuantumSequencer:
         notes = seq.generate_sequence(num_qubits=2, num_bars=2, rng=np.random.default_rng(42))
         assert len(notes) > 0
         # Second bar notes should start after first bar
-        bar1_end = max(n.start + n.duration for n in notes if n.start < 4.0)
+        max(n.start + n.duration for n in notes if n.start < 4.0)
         bar2_notes = [n for n in notes if n.start >= 4.0]
         assert len(bar2_notes) > 0
 

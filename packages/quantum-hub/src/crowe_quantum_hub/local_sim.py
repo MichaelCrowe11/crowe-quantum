@@ -8,7 +8,6 @@ matrix promotion.
 from __future__ import annotations
 
 import numpy as np
-
 from crowe_quantum_core.gates import standard_gates
 from crowe_quantum_core.noise import NoiseModel
 from crowe_quantum_core.protocols import (
@@ -136,7 +135,6 @@ class LocalSimulator(Backend):
                 mat = gate.matrix()
 
                 # Apply unitary: rho -> U rho U†
-                dim = dm.dim
                 if len(op.qubits) == 1:
                     full = _embed_single(mat, op.qubits[0], circuit.num_qubits)
                 else:
@@ -186,7 +184,7 @@ def _embed_multi(
     dim = 2**num_qubits
     result = np.zeros((dim, dim), dtype=np.complex128)
     k = len(qubits)
-    gate_dim = 2**k
+    2**k
 
     for i in range(dim):
         for j in range(dim):

@@ -129,7 +129,7 @@ class MPS:
 
         for i in range(n - 1):
             shape = remaining.shape
-            left_dim = shape[0] if i == 0 else shape[0] * shape[1] // shape[0]
+            shape[0] if i == 0 else shape[0] * shape[1] // shape[0]
             mat = remaining.reshape(shape[0] * (1 if i == 0 else bond_dims[-1]), -1)
 
             # Actually reshape properly

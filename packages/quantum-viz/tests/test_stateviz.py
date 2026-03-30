@@ -2,12 +2,11 @@
 
 import numpy as np
 import pytest
-
-from crowe_quantum_core.states import StateVector, DensityMatrix
+from crowe_quantum_core.states import DensityMatrix, StateVector
 from crowe_quantum_viz.stateviz import (
-    plot_probabilities,
-    plot_phase_disk,
     plot_density_heatmap,
+    plot_phase_disk,
+    plot_probabilities,
     state_table,
 )
 

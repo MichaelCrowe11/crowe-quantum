@@ -15,10 +15,10 @@ Plus the shared foundation:
 __version__ = "1.0.0"
 
 # Re-export the platform
-from crowe_quantum_core import gates, states, errors, noise, protocols, tensor, types
-from crowe_qubit_flow import Lexer, Parser, Interpreter, Compiler
-from crowe_synapse import UncertainValue, Symbol, Expression, Unit, Quantity
-from crowe_quantum_audio import QuantumSequencer, QuantumScale, NoteEvent
+from crowe_quantum_audio import NoteEvent, QuantumScale, QuantumSequencer
+from crowe_quantum_core import errors, gates, noise, protocols, states, tensor, types
+from crowe_qubit_flow import Compiler, Interpreter, Lexer, Parser
+from crowe_synapse import Expression, Quantity, Symbol, UncertainValue, Unit
 
 __all__ = [
     # Core

@@ -2,7 +2,6 @@
 
 import numpy as np
 import pytest
-
 from crowe_quantum_core.noise import (
     NoiseModel,
     amplitude_damping_channel,

@@ -2,10 +2,8 @@
 
 import math
 
-import numpy as np
 import pytest
-
-from crowe_quantum_core.noise import depolarizing_channel, NoiseModel
+from crowe_quantum_core.noise import NoiseModel, depolarizing_channel
 from crowe_quantum_core.protocols import CircuitIR
 from crowe_quantum_core.states import PauliString
 from crowe_quantum_hub.local_sim import LocalSimulator

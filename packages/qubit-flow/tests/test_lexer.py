@@ -1,7 +1,6 @@
 """Tests for the QubitFlow lexer."""
 
 import pytest
-
 from crowe_qubit_flow.lexer import Lexer, LexerError, TokenType
 
 

@@ -9,12 +9,11 @@ between nodes, distinct from the gate-level noise in crowe-quantum-core.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import numpy as np
-from numpy.typing import NDArray
-
 from crowe_quantum_core.states import DensityMatrix, StateVector
+from numpy.typing import NDArray
 
 
 @dataclass

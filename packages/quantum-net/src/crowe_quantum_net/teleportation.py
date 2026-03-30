@@ -14,9 +14,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
+from crowe_quantum_core.states import StateVector
 from numpy.typing import NDArray
-
-from crowe_quantum_core.states import DensityMatrix, StateVector
 
 
 @dataclass(frozen=True)

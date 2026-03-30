@@ -1,9 +1,8 @@
 """Tests for the backend registry."""
 
 import pytest
-
-from crowe_quantum_hub.registry import BackendRegistry, registry
 from crowe_quantum_hub.local_sim import LocalSimulator
+from crowe_quantum_hub.registry import BackendRegistry, registry
 
 
 class TestBackendRegistry:

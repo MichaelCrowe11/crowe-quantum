@@ -7,13 +7,13 @@ heatmaps. All renderers produce matplotlib figures for maximum flexibility.
 __version__ = "1.0.0"
 
 from crowe_quantum_viz.bloch import BlochSphere, bloch_coords
+from crowe_quantum_viz.circuit_draw import CircuitDrawer, draw_circuit
 from crowe_quantum_viz.stateviz import (
-    plot_probabilities,
-    plot_phase_disk,
     plot_density_heatmap,
+    plot_phase_disk,
+    plot_probabilities,
     state_table,
 )
-from crowe_quantum_viz.circuit_draw import CircuitDrawer, draw_circuit
 
 __all__ = [
     "BlochSphere",

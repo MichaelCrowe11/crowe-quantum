@@ -1,6 +1,5 @@
 """Tests for circuit drawing."""
 
-import pytest
 
 from crowe_quantum_core.protocols import CircuitIR
 from crowe_quantum_viz.circuit_draw import CircuitDrawer, draw_circuit

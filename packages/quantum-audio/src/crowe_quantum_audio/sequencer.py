@@ -8,14 +8,13 @@ harmonic and rhythmic constraints.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import numpy as np
-
 from crowe_quantum_core.gates import standard_gates
 from crowe_quantum_core.states import StateVector
 
-from crowe_quantum_audio.mapping import QuantumScale, StateToMIDI, amplitude_to_velocity
+from crowe_quantum_audio.mapping import QuantumScale, StateToMIDI
 
 
 @dataclass
