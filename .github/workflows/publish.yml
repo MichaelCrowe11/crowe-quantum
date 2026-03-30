@@ -1,0 +1,93 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - '*-v*'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  determine-package:
+    name: Determine package from tag
+    runs-on: ubuntu-latest
+    outputs:
+      package: ${{ steps.parse.outputs.package }}
+      version: ${{ steps.parse.outputs.version }}
+    steps:
+      - id: parse
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          PACKAGE="${TAG%-v*}"
+          VERSION="${TAG#*-v}"
+          echo "package=$PACKAGE" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+  test:
+    name: Test before publish
+    needs: determine-package
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install all packages and test
+        env:
+          PKG: ${{ needs.determine-package.outputs.package }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e "packages/core[dev]"
+          pip install -e "packages/synapse[dev]"
+          pip install -e "packages/qubit-flow[dev]"
+          pip install -e "packages/quantum-net[dev]"
+          pip install -e "packages/quantum-hub[dev]"
+          pip install -e "packages/quantum-viz[dev]"
+          pip install -e "packages/quantum-audio[dev]"
+          pip install -e "packages/trinity[dev]"
+          pytest "packages/$PKG/tests/" -q
+
+  build:
+    name: Build distribution
+    needs: [determine-package, test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build twine
+      - name: Build
+        env:
+          PKG: ${{ needs.determine-package.outputs.package }}
+        run: python -m build "packages/$PKG/"
+      - name: Check
+        env:
+          PKG: ${{ needs.determine-package.outputs.package }}
+        run: twine check "packages/$PKG/dist/"*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: packages/${{ needs.determine-package.outputs.package }}/dist/*
+
+  publish:
+    name: Publish to PyPI
+    needs: [determine-package, build]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
