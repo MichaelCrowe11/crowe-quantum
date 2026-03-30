@@ -28,11 +28,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install numpy sympy scipy matplotlib pytest pytest-cov ruff
       - name: Install all packages (local monorepo)
         run: |
-          python -m pip install --upgrade pip
-          pip install numpy "sympy>=1.12" "scipy>=1.13" "matplotlib>=3.9" pytest pytest-cov ruff
           pip install --no-deps -e packages/core
           pip install --no-deps -e packages/synapse
           pip install --no-deps -e packages/qubit-flow
