@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crowe-quantum-trinity"
-version = "1.0.0"
+version = "1.0.1"
 description = "The complete Crowe Quantum Platform — unified quantum computing, scientific reasoning, and creative expression"
 readme = "README.md"
 license = {text = "MIT"}

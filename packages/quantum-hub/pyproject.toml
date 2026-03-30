@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crowe-quantum-hub"
-version = "1.0.0"
+version = "1.0.1"
 description = "Quantum backend connector hub — local simulator and backend registry"
 readme = "README.md"
 license = {text = "MIT"}

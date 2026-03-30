@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crowe-synapse"
-version = "3.0.0"
+version = "3.0.1"
 description = "Scientific reasoning language with uncertainty propagation and symbolic math — part of the Crowe Quantum Platform"
 readme = "README.md"
 license = {text = "MIT"}
